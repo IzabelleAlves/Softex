@@ -44,7 +44,7 @@ console.log(!condicao);
 
 //questao10
 
-let numero: number = 5;
+let numero2: number = 5;
 let min: number = 1;
 let max: number = 10;
 console.log(numero >= min && numero <= max);
@@ -64,7 +64,7 @@ console.log(numero > 0);
 
 //questao13
 
-let texto: string = "";
+let texto1: string = "";
 console.log(texto.length);
 
 //questao14
