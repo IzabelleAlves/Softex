@@ -1,0 +1,12 @@
+1. Defina o que é uma variável na programação.
+ É o que atribui valor. Serve para armazenar informações temporárias ou permanentes que podem ser usadas e manipuladas dentro de um programa de computador.
+
+2. Escreva com as suas palavras a diferença entre as declarações const, let e var e como elas podem
+ser aplicadas na prática.
+
+Cont -> é uma constante. Algo que não sofrerá mudança de valor.
+Let -> é uma váriavel de bloco, pode ter o valor modificado e não vaza escopo. 
+var -> outra forma de declarar váriavel, também de bloco, porém vaza escopo e não é muito usada.
+
+3. Explique a diferença entre as variáveis do tipo objeto e lista.
+Uma variável de tipo lista é um array, que é uma coleção de elementos e, no contexto da linguagem de programação, também é considerado um tipo de objeto. Os objetos sao usados para armazenarem valores em pares de chave-valor e permite que adicionemos propriedades e métodos, enquanto a lista não. Os valores da lista só podem ser percorridos usando loops como o for ou métodos como forEach, que são otimizados para percorrer e iterar sobre os elementos do array.
