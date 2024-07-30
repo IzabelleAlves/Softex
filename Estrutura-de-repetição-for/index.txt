@@ -1,0 +1,15 @@
+Questão1
+
+O comando "for" serve para percorrer listas/arrays. São blocos de código que são executados enquanto determinada condição é atendida. 
+
+Questão2
+
+O comando "for" define o início de uma repetição ao criar a variável de iteração, geralmente a variável I, que atende adeterminada condição e é incrementada a cada loop. 
+
+Questao3
+
+O comando "for" determina o fim da execução quando o valor de I não atende mais à condição dada.
+
+Questão4
+
+A alteração do valor em cada repetição dentro da estrutura de repetição "for" ocorre após o bloco de código ser executado e o loop voltar ao início, iterando a variável I.
