@@ -274,20 +274,31 @@ console.log(`A média dos números digitados que estão no intervalo entre 50 e 
 //questao23
 
 let valor = Number(prompt("Digite um valor. Se quiser parar, digite '0'."))
-let valorArray: number[] = []
+let valorMenor = Infinity // é maior que qualquer número que o usuário pode digitar
 
 while (valor != 0){
-  valorArray.push(valor)
+    if (valor < valorMenor && valor > 0 && valor % 2 != 0) {
+      valorMenor = valor
+    }
   valor = Number(prompt("Digite um valor. Se quiser parar, digite '0'."))
 }
 
-let valorMenor = Math.max(...valorArray)
+//outra opção: 
+// let valor = Number(prompt("Digite um valor. Se quiser parar, digite '0'."))
+// let valorArray: number[] = []
 
-for (let i = 0; i< valorArray.length; i++){
-  if (valorArray[i] < valorMenor && valorArray[i] > 0 && valorArray[i] % 2 != 0) {
-    valorMenor = valorArray[i]
-  }
-}
+// while (valor != 0){
+//   valorArray.push(valor)
+//   valor = Number(prompt("Digite um valor. Se quiser parar, digite '0'."))
+// }
+
+// let valorMenor = Math.max(...valorArray)
+
+// for (let i = 0; i< valorArray.length; i++){
+//   if (valorArray[i] < valorMenor && valorArray[i] > 0 && valorArray[i] % 2 != 0) {
+//     valorMenor = valorArray[i]
+//   }
+// }
 
 console.log(`O menor valor positivo e ímpar digitado foi: ${valorMenor}`)
 
