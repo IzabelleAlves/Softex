@@ -1,0 +1,14 @@
+1. Enumere as diferenças entre os comandos "for" e "while".]
+    For: 
+    1. Vai executar determinado bloco de código enquanto uma determinada condição for atendida.
+    2. Mais adequado para percorrer uma lista/array.
+    3. É iterado a cada loop.
+
+    While:
+    1. Vai executar determinado bloco de código enquanto uma determinada condição for atendida.
+    2. Funciona melhor no contexto de repetição no qual não sabemos ao certo quantos loop o código fará.
+    3. Não é necessariamente iterado a cada repetição. 
+
+2. Descreva em quais circunstâncias os comandos "for" e "while" devem ser empregados.
+    For -> Usado quando o número de repetições é conhecido ou se está iterando sobre determinada condição.
+    While -> Usado geralmente quando você não sabe quantas vezes vai precisar repetir o bloco de código. Depende do "true" da condição, que será alterado em determinado momento. Isso se chama "variável de controle".
