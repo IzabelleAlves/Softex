@@ -137,18 +137,18 @@ function adivinheNumero(min: number, max: number): number {
 function respostaAdivinharNumero(): void {
   let numAleatorio = adivinheNumero(1, 100)
   let contador: number = 0
-  let tentativa: number;
+  let tentativa: number
 
 do {
   tentativa = Number(prompt("Tente adivinhar o número de 1 à 100: "))
   contador++
 
   if (tentativa < numAleatorio) {
-    console.log("O número correto é maior que o número que você digitou :(");
+    console.log("O número correto é maior que o número que você digitou :(")
   } else if (tentativa > numAleatorio) {
-    console.log("O número correto é menor que o número que você digitou :(");
+    console.log("O número correto é menor que o número que você digitou :(")
   } else {
-    console.log(`Parabéns!!! Você acertou o número escondido depois de ${contador} tentativas`);
+    console.log(`Parabéns!!! Você acertou o número escondido depois de ${contador} tentativas`)
   }
 } while(tentativa != numAleatorio)
 }
@@ -172,7 +172,7 @@ let pessoa1 = {
 
 console.log(verificarPropriedade(pessoa1, 'nome'))
 
-// questao18
+//questao18
 
 function calcularPrecoProduto(custo: number, margemLucro: number, frete: number): number {
   let lucro: number = custo * (margemLucro / 100)
@@ -181,7 +181,7 @@ function calcularPrecoProduto(custo: number, margemLucro: number, frete: number)
 
 console.log(calcularPrecoProduto(100, 20, 15))
 
-// questao19
+//questao19
 
 function palavraMaisLonga(frase: string): string{
   const palavras = frase.split(" ")
@@ -198,3 +198,111 @@ function palavraMaisLonga(frase: string): string{
 console.log(palavraMaisLonga("Tutorial de Desenvolvimento da Web"))
 
 // questao20
+function lista (array: string[]): void{
+  let maiorString = Math.max(...array.map(palavra => palavra.length))
+  
+  console.log('*'.repeat(maiorString + 4))
+
+  for (let palavra of array){
+    console.log(`* ${palavra.padEnd(maiorString, ' ')} *`)
+  }
+  console.log('*'.repeat(maiorString + 4))
+}
+
+let array: string[] = ["Hello", "World", "in", "a", "frame"]
+
+lista(array)
+
+//questao21
+
+function maiorString (array: string[]): void{
+    let maiorCincoLetras = array.filter(palavra => palavra.length > 5)
+
+  console.log(maiorCincoLetras)
+}
+
+const palavras: string[] = ['ovo', 'padaria', 'onibus', 'passagem', 'porta', 'um']
+
+maiorString(palavras)
+
+//questao22
+
+type Livro = {
+  titulo: string,
+  autor: string,
+  ano: number,
+}
+
+const livro1 = [
+  {titulo: 'A festa', autor: 'Branca de Neve', ano: 2024},
+  {titulo: 'O bolo', autor: 'Madrasta', ano: 2024},
+  {titulo: 'Ontem', autor: 'Alves', ano: 2024},
+  {titulo: 'Protetor Solar', autor: 'Alves', ano: 2024},
+  {titulo: 'Praia', autor: 'Branca de Neve', ano: 2024},
+  {titulo: 'Amanhã', autor: 'Alves', ano: 2024},
+]
+
+function todosOsLivros(objeto: Livro[], autor: string): object {
+  let mesmoAutor = objeto.filter(livro => livro.autor === autor)
+  
+  return mesmoAutor
+}
+const livrosBrancaDeNeve = todosOsLivros(livro1, 'Alves')
+console.log(livrosBrancaDeNeve)
+
+// questao23
+
+type Pessoas = {
+  nome: string,
+  idade: number,
+}
+
+let pessoas1 = [
+  {nome: 'José', idade: 22},
+  {nome: 'João', idade: 34},
+  {nome: 'Francisco', idade: 8},
+]
+
+function idade (objeto: Pessoas[]): string{
+  let idadePessoaMaisVelha = objeto[0].idade
+  let nomePessoaMaisVelha = objeto[0].nome
+  
+  for (let i = 1; i < objeto.length; i++){
+    if (objeto[i].idade > idadePessoaMaisVelha){
+      idadePessoaMaisVelha = objeto[i].idade
+      nomePessoaMaisVelha = objeto[i].nome
+    }
+  }
+  return nomePessoaMaisVelha
+}
+
+console.log(idade(pessoas1))
+
+// //questao24
+
+type Carros = {
+  marca: string,
+  modelo: string,
+  ano: number,
+}
+
+let carros1: Carros[] = [
+  {marca: 'Gol', modelo: 'g5', ano: 2019},
+  {marca: 'Hyundai', modelo: 'hb20', ano: 2020},
+  {marca: 'Honda', modelo: 'CR-V', ano: 2024}
+]
+
+function anoCarro(objeto: Carros[], ano: number): Carros[]{
+  let carrosAno = objeto.filter(objeto => objeto.ano > ano)
+
+  return carrosAno
+}
+console.log(anoCarro(carros1, 2019))
+
+//questao25
+
+function inverterString (str: string): string{
+  return str.split('').reverse().join('')
+}
+
+console.log(inverterString('HelloWorld'))
