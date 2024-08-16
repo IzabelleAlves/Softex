@@ -304,9 +304,9 @@ console.log(`O menor valor positivo e ímpar digitado foi: ${valorMenor}`)
 
 //questao24
 
-let contadorPar: number = 0;
-let contadorImpar: number = 0;
-let numero1 = Number(prompt("Digite um número. Digite 0 para parar:"));
+let contadorPar: number = 0
+let contadorImpar: number = 0
+let numero1 = Number(prompt("Digite um número. Digite 0 para parar:"))
 
 while (numero1 != 0) {
   if (numero1 % 2 == 0){
@@ -315,8 +315,7 @@ while (numero1 != 0) {
     contadorImpar++
   }
   
-  numero1 = Number(prompt("Digite um número. Digite 0 para parar:"));
-
+  numero1 = Number(prompt("Digite um número. Digite 0 para parar:"))
 }
 
-console.log(`O total de números pares digitados foi de: ${contadorPar} e o total de ímpares foi de: ${contadorImpar}`);
+console.log(`O total de números pares digitados foi de: ${contadorPar} e o total de ímpares foi de: ${contadorImpar}`)
