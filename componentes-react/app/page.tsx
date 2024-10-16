@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Cabecalho />
     <div className="grid grid-cols-2 gap-4">
-      <Title />
+      <Title  text="Olá" nome="eu"/>
       <Quadrado/>
       <Button />
       <ListItem />
