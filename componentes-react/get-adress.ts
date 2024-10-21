@@ -1,17 +1,10 @@
-async function getAddress(cep: string){ // async deixa a função assíncrona
+export async function getAddress(cep: string){ // async deixa a função assíncrona
 
-    try {
-        const url = `https://viacep.com/ws/${cep}/json/`
-        console.log(url)
-    
+    const url = `https://viacep.com.br/ws/${cep}/json/`   
         const response = await fetch(url) // await diz que vai puxar a resposta do servidor de forma assincrona
         const data = await response.json()
-        console.log(data)
-        //procesamento
-    } catch (error) {
-        console.error('Erro')
-    }
-}
+        return data;
 
-getAddress("52091041")
-console.log('restante do codigo')
+        //procesamento
+        console.error('Erro')
+}
