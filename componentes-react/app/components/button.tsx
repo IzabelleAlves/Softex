@@ -4,22 +4,22 @@ import { useState } from "react";
 import { endereco } from "./address";
 
 type Address = {
-  cep: string,
+  cep: string;
   // id: string,
-  logradouro: string,
-  complemento: string,
-  unidade: string,
-  bairro: string,
-  localidade: string,
-  uf: string,
-  estado: string,
-  regiao: string,
-  ibge: string,
-  gia: string,
-  ddd: string,
-  siafi: string
-}
-const array: Address[] = []
+  logradouro: string;
+  complemento: string;
+  unidade: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  estado: string;
+  regiao: string;
+  ibge: string;
+  gia: string;
+  ddd: string;
+  siafi: string;
+};
+const array: Address[] = [];
 
 export function Button() {
   const [address, setAddress] = useState<Address | null>(null);
@@ -27,10 +27,10 @@ export function Button() {
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  
+
   async function HandleGetAddress() {
-    if (inputValue.length != 8){
-      alert("CEP inválido")
+    if (inputValue.length != 8) {
+      alert("CEP inválido");
     }
     setLoading(true);
     setError("");
@@ -38,8 +38,15 @@ export function Button() {
     try {
       const result = await getAddress(inputValue);
       setAddress(result);
-      array.push(endereco)
-      console.log(array)
+      const incrementarArrayCep = endereco.some(
+        (item) => item.cep === result.cep
+      );
+
+      if (!incrementarArrayCep) {
+        endereco.push(result);
+      }
+      console.log(endereco.length);
+      console.log(endereco);
     } catch (error) {
       setError("Por favor, insira um CEP válido.");
     } finally {
@@ -58,10 +65,10 @@ export function Button() {
       />
 
       <button
-        disabled= {inputValue === ""}
+        disabled={inputValue === ""}
         onClick={HandleGetAddress}
         className={`${
-          loading || inputValue == "" && "opacity-30"
+          loading || (inputValue == "" && "opacity-30")
         } m-3 w-fit px-4 py-2 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75`}
       >
         {loading ? "Carregando..." : "Obter endereço"}
