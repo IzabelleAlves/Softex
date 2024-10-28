@@ -11,14 +11,15 @@ export default function Home() {
   return (
     <>
       <Cabecalho />
-    <div className="grid grid-cols-2 gap-4">
-      <Title  text="Olá"/>
-      <Quadrado/>
-      <Button />
-      <ListItem />
-      <Img />
-      <Paragrafo /> 
-    </div>
+      {/* <div className="grid grid-cols-2 gap-4"> */}
+      <div className="flex flex-col gap-5">
+        <Title text="Olá" />
+        <Quadrado />
+        <Button />
+        <ListItem />
+        <Img />
+        <Paragrafo />
+      </div>
       <Footer />
     </>
   );
