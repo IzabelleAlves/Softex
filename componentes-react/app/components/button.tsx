@@ -1,29 +1,45 @@
 "use client";
 import { getAddress } from "@/get-adress";
 import { useState } from "react";
+import { endereco } from "./address";
 
-interface Address {
-  logradouro: string;
-  bairro: string;
-  localidade: string;
-  estado: string;
-  ddd: string;
+type Address = {
+  cep: string,
+  // id: string,
+  logradouro: string,
+  complemento: string,
+  unidade: string,
+  bairro: string,
+  localidade: string,
+  uf: string,
+  estado: string,
+  regiao: string,
+  ibge: string,
+  gia: string,
+  ddd: string,
+  siafi: string
 }
+const array: Address[] = []
 
 export function Button() {
-  const [cep, setCep] = useState("");
-  const [number, setNumber] = useState("");
   const [address, setAddress] = useState<Address | null>(null);
+  const [inputValue, setInputValue] = useState("");
+  const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  
   async function HandleGetAddress() {
+    if (inputValue.length != 8){
+      alert("CEP inválido")
+    }
     setLoading(true);
     setError("");
+
     try {
-      const result = await getAddress(cep);
+      const result = await getAddress(inputValue);
       setAddress(result);
-      console.log(address);
+      array.push(endereco)
+      console.log(array)
     } catch (error) {
       setError("Por favor, insira um CEP válido.");
     } finally {
@@ -34,17 +50,18 @@ export function Button() {
   return (
     <>
       <input
+        className="m-3 px-2 py-2 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-gray-500"
         type="text"
-        value={cep}
-        onChange={(e) => setCep(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
         placeholder="Digite seu CEP"
-        className="m-3 px-4 py-2 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-gray-500"
       />
 
       <button
+        disabled= {inputValue === ""}
         onClick={HandleGetAddress}
         className={`${
-          loading && "opacity-30"
+          loading || inputValue == "" && "opacity-30"
         } m-3 w-fit px-4 py-2 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75`}
       >
         {loading ? "Carregando..." : "Obter endereço"}
@@ -83,7 +100,7 @@ export function Button() {
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     placeholder="Número"
-                    className="py-2 px-2 m-2 border border-gray-100 rounded-lg text-black bg-transparent border-none focus:outline-none focus:ring-0"
+                    className="py-2 px-2 m-2 border border-gray-900 rounded-lg text-black bg-transparent focus:outline-none focus:ring-0"
                   />
                 }
               </h1>

@@ -1,3 +1,4 @@
+import { Address } from "./components/address";
 import { Button } from "./components/button";
 import { Cabecalho } from "./components/cabecalho";
 import { Footer } from "./components/footer";
@@ -12,10 +13,11 @@ export default function Home() {
     <>
       <Cabecalho />
       {/* <div className="grid grid-cols-2 gap-4"> */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 m-5">
         <Title text="Olá" />
         <Quadrado />
         <Button />
+        <Address />
         <ListItem />
         <Img />
         <Paragrafo />

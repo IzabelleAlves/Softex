@@ -1,9 +1,14 @@
+const names = [
+    'Izabelinha',
+    'Camilinha',
+    'Prof Augusto',
+    'pessoas'
+]
+
 export function ListItem(){
-    return <div>
-        <ul className="m-3">
-            <li>Aula 1</li>
-            <li>Aula 2</li>
-            <li>Aula 3</li>
-        </ul>
-    </div>
+    return <>
+    <ul>
+        {names.map((x, index) => <li key={index}>{x}</li>)}
+    </ul>
+    </>
 }
