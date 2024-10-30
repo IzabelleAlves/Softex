@@ -17,7 +17,7 @@ type Address = {
   siafi: string;
 };
 
-export const endereco: Address[] = [
+export const inicialEndereco: Address[] = [
   {
     cep: "01001-000",
     //   id: '1',
@@ -104,7 +104,7 @@ export function Address() {
   return (
     <>
       <ul>
-        {endereco.map((item, index) => (
+        {inicialEndereco.map((item, index) => (
           <li key={index}>{item.logradouro}</li>
         ))}
       </ul>

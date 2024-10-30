@@ -25,3 +25,15 @@ body {
     text-wrap: balance;
   }
 }
+
+/* @media only screen and (max-width: 600px) {
+  nav {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #button-menu {
+    display: none;
+  }
+} */

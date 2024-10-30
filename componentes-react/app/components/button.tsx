@@ -1,7 +1,7 @@
 "use client";
 import { getAddress } from "@/get-adress";
 import { useState } from "react";
-import { endereco } from "./address";
+import { inicialEndereco } from "./address";
 
 type Address = {
   cep: string;
@@ -27,6 +27,7 @@ export function Button() {
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [enderecos, setEnderecos] = useState<Address[]>([])
 
   async function HandleGetAddress() {
     if (inputValue.length != 8) {
@@ -38,15 +39,16 @@ export function Button() {
     try {
       const result = await getAddress(inputValue);
       setAddress(result);
-      const incrementarArrayCep = endereco.some(
-        (item) => item.cep === result.cep
-      );
+      // const incrementarArrayCep = inicialEndereco.some(
+      //   (item) => item.cep === result.cep
+      // );
 
-      if (!incrementarArrayCep) {
-        endereco.push(result);
-      }
-      console.log(endereco.length);
-      console.log(endereco);
+      setEnderecos([result, ...enderecos])
+      // if (!incrementarArrayCep) {
+      //   endereco.push(result);
+      // }
+      // console.log(endereco.length);
+      // console.log(endereco);
     } catch (error) {
       setError("Por favor, insira um CEP válido.");
     } finally {
