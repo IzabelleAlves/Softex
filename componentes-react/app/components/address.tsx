@@ -1,5 +1,8 @@
 "use client";
 
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
 type Address = {
   cep: string;
   // id: string,
@@ -15,6 +18,7 @@ type Address = {
   gia: string;
   ddd: string;
   siafi: string;
+  createdAt: Date;
 };
 
 export const inicialEndereco: Address[] = [
@@ -33,6 +37,7 @@ export const inicialEndereco: Address[] = [
     gia: "1004",
     ddd: "11",
     siafi: "7107",
+    createdAt: new Date(),
   },
   {
     cep: "80010-000",
@@ -49,6 +54,7 @@ export const inicialEndereco: Address[] = [
     gia: "",
     ddd: "41",
     siafi: "7535",
+    createdAt: new Date(),
   },
   {
     cep: "20090-003",
@@ -65,6 +71,7 @@ export const inicialEndereco: Address[] = [
     gia: "",
     ddd: "21",
     siafi: "6001",
+    createdAt: new Date(),
   },
   {
     cep: "50050-000",
@@ -81,6 +88,7 @@ export const inicialEndereco: Address[] = [
     gia: "",
     ddd: "81",
     siafi: "2531",
+    createdAt: new Date(),
   },
   {
     cep: "30120-010",
@@ -97,15 +105,25 @@ export const inicialEndereco: Address[] = [
     gia: "",
     ddd: "31",
     siafi: "4123",
+    createdAt: new Date(),
   },
 ];
+
+function formatDate(date: Date){
+  const result = formatDistanceToNow(
+    new Date(),
+    {includeSeconds: true, locale: ptBR}
+  )
+
+  return result
+}
 
 export function Address() {
   return (
     <>
       <ul>
         {inicialEndereco.map((item, index) => (
-          <li key={index}>{item.logradouro}</li>
+          <li key={index}>{item.logradouro}, {formatDate(item.createdAt)}</li>
         ))}
       </ul>
     </>

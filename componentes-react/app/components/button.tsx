@@ -2,10 +2,11 @@
 import { getAddress } from "@/get-adress";
 import { useState } from "react";
 import { inicialEndereco } from "./address";
+import { formatDistanceToNow } from "date-fns";
 
 type Address = {
   cep: string;
-  // id: string,
+  id: string,
   logradouro: string;
   complemento: string;
   unidade: string;
@@ -18,9 +19,19 @@ type Address = {
   gia: string;
   ddd: string;
   siafi: string;
+  createdAt: Date;
 };
 const array: Address[] = [];
 
+function formatDate(date: Date){
+  const result = formatDistanceToNow(
+    new Date(2015, 0, 1, 0, 0, 15),
+    {includeSeconds: true}
+  )
+
+  return result
+}
+//RENDERIZAR AQUI!!!!
 export function Button() {
   const [address, setAddress] = useState<Address | null>(null);
   const [inputValue, setInputValue] = useState("");
@@ -39,11 +50,14 @@ export function Button() {
     try {
       const result = await getAddress(inputValue);
       setAddress(result);
+
+      const newEndereco: Address = {id: self.crypto.randomUUID(), createdAt: new Date(),...result}
       // const incrementarArrayCep = inicialEndereco.some(
       //   (item) => item.cep === result.cep
       // );
 
-      setEnderecos([result, ...enderecos])
+      setEnderecos([newEndereco, ...enderecos])
+      console.log(newEndereco)
       // if (!incrementarArrayCep) {
       //   endereco.push(result);
       // }
